@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+@layer base {
+    h1{
+        @apply text-5xl;
+    }
+    h2{
+        @apply text-2xl;
+    }
+    h3{
+        @apply text-xl;
+    }
+
+    img{
+        filter: saturate(120%) brightness(110%) contrast(110%);
+    }
+    body{
+        @apply bg-gray-50;
+    }
+}
+
+@layer components {
+    .navUpHover{
+        @apply hover:translate-y-[-4px] transition-transform duration-300;
+    }
+}
