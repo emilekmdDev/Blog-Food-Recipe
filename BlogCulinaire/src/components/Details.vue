@@ -72,14 +72,6 @@ export default defineComponent({
     </div>
     <h3 class="bg-red-700 w-fit p-2 px-4 rounded-full font-black text-white">Recipe</h3>
     <p class="text-justify">{{data.strInstructions}}</p>
-    <div>
-      <iframe
-          allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          :src="embedeUrl(data.strYoutube)"
-          allowfullscreen
-          class="w-full h-70 rounded-2xl min-md:rounded-3xl min-sm:h-100 min-lg:h-180"
-      ></iframe>
-    </div>
     <div class="min-sm:grid min-sm:grid-cols-3 bg-white  py-10 px-10 border-2 gap-x-40 border-gray-100 items-center justify-center">
       <template v-for="ingredient in ingredients">
         <div class="grid grid-cols-2 items-center  [&_*]:mt-2  gap-10">
@@ -88,6 +80,15 @@ export default defineComponent({
         </div>
       </template>
     </div>
+    <div>
+      <iframe
+          allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          :src="embedeUrl(data.strYoutube)"
+          allowfullscreen
+          class="w-full h-70 rounded-2xl min-md:rounded-3xl min-sm:h-100 min-lg:h-180"
+      ></iframe>
+    </div>
+
   </div>
   <div v-else>
     chargement

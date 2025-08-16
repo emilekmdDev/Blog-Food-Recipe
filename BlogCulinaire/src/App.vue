@@ -1,6 +1,10 @@
 <script setup>
   import {globalColor} from "@/stores/counter.js";
+  import {ref} from "vue";
+  import axios from "axios";
+
   const theme = globalColor();
+
 </script>
 
 <template>
@@ -22,9 +26,9 @@
         </div>
         <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
           <div class="hidden sm:ml-6 sm:block">
-            <div class="flex space-x-4 select-none">
+            <div class="flex space-x-4 select-none items-center">
               <router-link to="/" class="rounded-md px-3 py-2 text-sm font-medium text-gray-200 hover:bg-orange-500 hover:text-white navUpHover" active-class="bg-orange-600">Home</router-link>
-              <router-link to="/todefine" class="rounded-md px-3 py-2 text-sm font-medium text-gray-200 hover:bg-orange-500 hover:text-white navUpHover" active-class="bg-orange-600">Meal</router-link>
+              <router-link :to="{name:'Recettes'}" class="rounded-md px-3 py-2 text-sm font-medium text-gray-200 hover:bg-orange-500 hover:text-white navUpHover" active-class="bg-orange-600">Meal</router-link>
               <router-link to="/todefine" class="rounded-md px-3 py-2 text-sm font-medium text-gray-200 hover:bg-orange-500 hover:text-white navUpHover" active-class="bg-orange-600">Ingredient</router-link>
               <router-link to="/todefine" class="rounded-md px-3 py-2 text-sm font-medium text-gray-200 hover:bg-orange-500 hover:text-white navUpHover" active-class="bg-orange-600">About</router-link>
             </div>
@@ -32,16 +36,17 @@
         </div>
       </div>
     </div>
-    <el-disclosure id="mobile-menu" hidden class="block sm:hidden">
-      <div class="space-y-1 px-2 pt-2 pb-3">
+
+    <el-disclosure id="mobile-menu" hidden class="flex flex-col sm:hidden  items-center">
+      <div class="space-y-1 px-2 pt-2 pb-3 w-[85%]">
         <router-link to="/" class="block rounded-md px-3 py-2 text-base font-medium text-gray-200 hover:bg-orange-500 hover:text-white" active-class="bg-orange-600">Home</router-link>
-        <router-link to="/todefine" class="block rounded-md px-3 py-2 text-base font-medium text-gray-200 hover:bg-orange-500 hover:text-white" active-class="bg-orange-600">Meal</router-link>
+        <router-link :to="{name:'Recettes'}" class="block rounded-md px-3 py-2 text-base font-medium text-gray-200 hover:bg-orange-500 hover:text-white" active-class="bg-orange-600">Meal</router-link>
         <router-link to="/todefine" class="block rounded-md px-3 py-2 text-base font-medium text-gray-200 hover:bg-orange-500 hover:text-white" active-class="bg-orange-600">Ingredient</router-link>
         <router-link to="/todefine" class="block rounded-md px-3 py-2 text-base font-medium text-gray-200 hover:bg-orange-500 hover:text-white" active-class="bg-orange-600">About</router-link>
       </div>
+
     </el-disclosure>
   </nav>
-
   <transition name="fade">
     <div :key="$route.fullPath" class="current-view my-10">
       <router-view class="mt-20"></router-view>
@@ -66,6 +71,10 @@
 *::selection{
   background: #df0000;
   color: white;
+}
+
+.current-view{
+  margin-top: 80px;
 }
 
 </style>

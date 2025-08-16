@@ -12,7 +12,7 @@ export default defineComponent({
     }
   },
 
-  async mounted(){
+  async beforeMount(){
     try{
       const response = await axios.get('https://www.themealdb.com/api/json/v1/1/categories.php')
       if( response.status === 200 ){
